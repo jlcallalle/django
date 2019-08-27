@@ -1,0 +1,8 @@
+$ django-admin startproject mysite
+$ python manage.py runserver
+
+Proyectos vs. aplicaciones
+
+Una app es una aplicación web que hace algo, por ejemplo, un sistema de blog, una base de datos de registros públicos o una aplicación de encuesta simple. 
+Un proyecto es un conjunto de configuraciones y aplicaciones para un sitio web determinado. 
+Un proyecto puede contener aplicaciones múltiples. Una aplicación puede estar en varios proyectos.
