@@ -1,6 +1,4 @@
 from django.db import models
-from datetime import datetime,date
-
 class Pacientes(models.Model):
     tipo_documento = models.CharField(max_length=3, choices=[
         ('DNI', 'DNI'),

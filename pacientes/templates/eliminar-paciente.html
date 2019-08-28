@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <section class="section-eliminar">
+		<article>
+			<form method="post">
+				{% csrf_token %}
+				<h3> ¿Deseas eliminar a {{ pacientes.nombres }} {{ pacientes.appPaterno }}?</h3>
+				<button type="submit" class="btn btn-danger">Eliminar</button>
+				<a href="/" class="btn  btn-secondary">Cancelar</a>
+			</form>
+		</article>
+	</section>
+</body>
+</html>
