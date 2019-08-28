@@ -15,6 +15,31 @@
 <body>
     <div class="wrapper ">
         <div class="container container-fluid">
+            <section class="section-buscar-paciente">
+                <div class="row">
+                    <!--Bucar Paciente -->
+                    <form method="post" class="form-buscar">
+                            {% csrf_token %}
+                            <div class="col col-5">
+                                <div class="form-group group-tipo">
+                                        {{ form.tipo_documento }}
+                                </div>
+                            </div>
+                            <div class="col col-5 group-num">
+                                <div class="form-group">
+                                        {{ form.numero_documento }}
+                                </div>
+                            </div>
+                            <div class="col col-lg-2">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Buscar</button>
+                                    <a href="/crear" class="btn btn-secondary">Crear </a>
+                                </div>
+                            </div>
+                    </form>
+                    <!---->
+                </div>
+            </section>
             <section class="listar-paciente">
               <h2>Listar Pacientes</h2>
                 <div class="table-responsive">

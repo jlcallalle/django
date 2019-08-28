@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DeleteView
-from django.urls import reverse_lazy, reverse
+from django.views.generic import ListView, CreateView, DeleteView
+from django.urls import reverse_lazy
 from .models import Pacientes
+from .form import PacienteForm
 
 class ListarPacientes(ListView):
     template_name = 'listar-paciente.html'
@@ -11,6 +12,13 @@ class ListarPacientes(ListView):
 class EliminarPacientes(DeleteView):
     template_name = 'eliminar-paciente.html'
     model = Pacientes
+    success_url = reverse_lazy('listar-pacientes')
+
+class CrearPacientes(CreateView):
+    template_name = 'crear-paciente.html'
+    model = Pacientes
+    form_class = PacienteForm
+    form = PacienteForm
     success_url = reverse_lazy('listar-pacientes')
 
 # Create your views here.
