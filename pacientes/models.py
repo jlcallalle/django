@@ -31,3 +31,4 @@ class Pacientes(models.Model):
             res = '{year} años, {month} meses {day} días'.format(year=edad1.years, month=edad1.months, day=edad1.days)
 
         return res
+

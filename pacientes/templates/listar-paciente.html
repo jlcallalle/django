@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
     <div class="container container-fluid page-listar-paciente">
         <section class="section-buscar-paciente">
             <div class="row">
                 <!--Bucar Paciente -->
-                <form method="post" class="form-buscar">
+				<form method="post" class="form-buscar">
                     {% csrf_token %}
                     <div class="col col-5">
                         <div class="form-group group-tipo">
@@ -22,7 +23,8 @@
                             <a href="/crear" class="btn btn-secondary">Crear </a>
                         </div>
                     </div>
-                </form>
+				</form>
+
             </div>
         </section>
         <section class="listar-paciente">

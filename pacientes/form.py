@@ -1,7 +1,32 @@
 from django import forms
-
 from .models import Pacientes
 
+
+class BuscarPacienteForm(forms.Form):
+    cbo_doc = (
+          ('DNI', 'DNI'),
+          ('CE', 'Carné de Extranjería'),
+          ('IN', 'Indocumentado'),
+    )
+    tipo_documento = forms.ChoiceField(label='TIPO DE DOCUMENTO',  choices=cbo_doc, initial='1', required=False,
+                                       widget=forms.Select(attrs={'class': 'form-control', 'style': 'height:32px;'}))
+    numero_documento = forms.CharField(label='NUMERO DE DOCUMENTO', max_length=15, min_length=8,
+                                       widget=forms.TextInput(attrs={
+                                           'placeholder': 'Ingrese el numero de documento a buscar'}), required=False)
+
+    # def init(self, args, *kwargs):
+    #     self.fields['tipo_documento'].widget = forms.Select(
+    #         choices=((val, val) for val in range(1, 32)),
+    #         attrs={'class': 'form-control dia cbo_fecha_nacimiento'})
+
+
+# """
+#  choices=[
+#     ('DNI', 'DNI'),
+#     ('CE', 'Carné de Extranjería'),
+#     ('IN', 'Indocumentado'),
+# ], default='DNI')
+# """
 
 class PacienteForm(forms.models.ModelForm):
     class Meta:
