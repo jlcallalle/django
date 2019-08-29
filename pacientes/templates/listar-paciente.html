@@ -1,46 +1,31 @@
-<!DOCTYPE html>
-{% load staticfiles %}
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Listar Paciente</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-       <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-       <link href="{% static 'css/main.css' %}" rel="stylesheet">
-
-
-    </head>
-<body>
-    <div class="wrapper ">
-        <div class="container container-fluid">
-            <section class="section-buscar-paciente">
-                <div class="row">
-                    <!--Bucar Paciente -->
-                    <form method="post" class="form-buscar">
-                            {% csrf_token %}
-                            <div class="col col-5">
-                                <div class="form-group group-tipo">
-                                        {{ form.tipo_documento }}
-                                </div>
-                            </div>
-                            <div class="col col-5 group-num">
-                                <div class="form-group">
-                                        {{ form.numero_documento }}
-                                </div>
-                            </div>
-                            <div class="col col-lg-2">
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Buscar</button>
-                                    <a href="/crear" class="btn btn-secondary">Crear </a>
-                                </div>
-                            </div>
-                    </form>
-                    <!---->
-                </div>
-            </section>
-            <section class="listar-paciente">
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container container-fluid page-listar-paciente">
+        <section class="section-buscar-paciente">
+            <div class="row">
+                <!--Bucar Paciente -->
+                <form method="post" class="form-buscar">
+                    {% csrf_token %}
+                    <div class="col col-5">
+                        <div class="form-group group-tipo">
+                                {{ form.tipo_documento }}
+                        </div>
+                    </div>
+                    <div class="col col-5 group-num">
+                        <div class="form-group">
+                                {{ form.numero_documento }}
+                        </div>
+                    </div>
+                    <div class="col col-lg-2">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Buscar</button>
+                            <a href="/crear" class="btn btn-secondary">Crear </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="listar-paciente">
               <h2>Listar Pacientes</h2>
                 <div class="table-responsive">
                 <table class="table">
@@ -71,7 +56,5 @@
                 </table>
                 </div>
             </section>
-        </div>
     </div>
-</body>
-</html>
+{% endblock %}

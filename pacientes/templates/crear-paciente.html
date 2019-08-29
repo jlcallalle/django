@@ -1,90 +1,65 @@
-<!DOCTYPE html>
-{% load staticfiles %}
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Listar Paciente</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-       <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-       <link href="{% static 'css/main.css' %}" rel="stylesheet">
-
-
-    </head>
-<body>
-
-<div class="wrapper crear-paciente">
-        <div class="container container-fluid">
-            <section class="section-pacientes">
-                <div class="row">
-                    <div class="col-12">
-                         <h2 class="minsa-pacientes"> Crear Paciente</h2>
-                    </div>
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container container-fluid page-crear-paciente">
+        <section class="section-pacientes">
+            <div class="row">
+                <div class="col-12">
+                     <h2 class="minsa-pacientes"> Crear Paciente</h2>
                 </div>
-                <div class="formulario">
-                    {% load crispy_forms_tags %}
-
-                    <form action="./" method="post">
-                        {% csrf_token %}
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="form-group">
-                                            {{ form.tipo_documento|as_crispy_field }}
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                            {{ form.numero_documento|as_crispy_field }}
-                                    </div>
+            </div>
+            <div class="formulario">
+                {% load crispy_forms_tags %}
+                <form action="./" method="post">
+                    {% csrf_token %}
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                        {{ form.tipo_documento|as_crispy_field }}
                                 </div>
                             </div>
-
-                            <div class="row">
-                                <div class="col-6">
-                                        <div class="form-group">
-                                                {{ form.nombres|as_crispy_field }}
-                                        </div>
+                            <div class="col-6">
+                                <div class="form-group num-doc">
+                                        {{ form.numero_documento|as_crispy_field }}
                                 </div>
                             </div>
-
-                            <div class="row">
-                                <div class="col-6">
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
                                     <div class="form-group">
-                                            {{ form.appPaterno|as_crispy_field }}
+                                            {{ form.nombres|as_crispy_field }}
                                     </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                        {{ form.appPaterno|as_crispy_field }}
                                 </div>
-                                <div class="col-6">
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                        {{ form.appMaterno|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
                                     <div class="form-group">
-                                            {{ form.appMaterno|as_crispy_field }}
+                                    {{ form.fecha|as_crispy_field }}
                                     </div>
-                                </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-6">
-                                        <div class="form-group">
-                                        {{ form.fecha|as_crispy_field }}
-                                        </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label>Edad</label>
-                                        <input type="text" class="form-control" id="inputEdad">
-                                        </div>
-                                </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>Edad</label>
+                                    <input type="text" class="form-control" id="inputEdad">
+                                    </div>
                             </div>
-
-                            <button id="btnSubmit" type="submit" class="btn btn-primary">Crear</button>
-                            <a href="/" class="btn btn-danger">Cancelar</a>
-
-                    </form>
-
-                </div>
-            </section>
-        </div>
+                        </div>
+                        <button id="btnSubmit" type="submit" class="btn btn-primary">Crear</button>
+                        <a href="/" class="btn btn-danger">Cancelar</a>
+                </form>
+            </div>
+        </section>
     </div>
-
-</body>
-</html>
+{% endblock %}
