@@ -26,6 +26,20 @@
             </div>
         </section>
         <section class="listar-paciente">
+
+            {% if messages %}
+            <div class="row">
+                <br/>
+                <div class="col-md-12">
+                    {% for message in messages %}
+                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> {{ message|safe }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
               <h2>Listar Pacientes</h2>
                 <div class="table-responsive">
                 <table class="table">
