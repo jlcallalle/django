@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pacientes',
     'crispy_forms',
+    'minsalogin',
 ]
 
 MIDDLEWARE = [
@@ -120,3 +121,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# MinsaLogin settings
+SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_DOMAIN = ".minsa.gob.pe"  # Change to desired URL
+URL_LOGIN_SERVER = 'http://devlogin.minsa.gob.pe/'  # Change to desired URL
+APP_IDENTIFIER = 'pe.gob.minsa.client'  # Change to desired app identifier
+LOGIN_URL = '/accounts/login/'
