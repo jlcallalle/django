@@ -1,0 +1,45 @@
+        <section class="listar-paciente">
+
+            {% if messages %}
+            <div class="row">
+                <br/>
+                <div class="col-md-12">
+                    {% for message in messages %}
+                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> {{ message|safe }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+              <h2>Listar Pacientes</h2>
+                <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Tipo de Documento</th>
+                            <th>Numero de Documento</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th class="edadl">Edad</th>
+                            <th>Nombres y Apellidos</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for paciente in pacientes %}
+                            <tr>
+                                <td>{{ paciente.tipo_documento }}</td>
+                                <td>{{ paciente.numero_documento }}</td>
+                                <td class="fechal">{{ paciente.fecha }}</td>
+                                <td class="edadl">{{ paciente.edad }}</td>
+                                <td>{{ paciente.nombres }} {{ paciente.appPaterno }} {{ paciente.appMaterno }}</td>
+                                <td><a href="/eliminar/{{ paciente.pk }}" class="btn btn-danger">Eliminar</a></td>
+                                <td><a href="/editar/{{ paciente.pk }}" class="btn btn-secondary">Editar</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+            </section>

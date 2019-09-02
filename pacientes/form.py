@@ -11,10 +11,9 @@ class BuscarPacienteForm(forms.Form):
     tipo_documento = forms.ChoiceField(label='Tipo de documento',
                                        choices=cbo_doc, initial='1',
                                        required=False,
-                                       widget=forms.Select(attrs={'class': 'form-control jorge', }))
+                                       widget=forms.Select(attrs={'class': 'form-control jorge'}))
     numero_documento = forms.CharField(label='Número de documento', max_length=15, min_length=8,
-                                       widget=forms.TextInput(attrs={
-                                           'placeholder': ''}), required=False)
+                                       widget=forms.TextInput(attrs={'class': 'form-control jorge'}), required=False)
 
 
 class PacienteForm(forms.models.ModelForm):

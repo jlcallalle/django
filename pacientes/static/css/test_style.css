@@ -1,0 +1,23 @@
+body {
+    //border:40px solid red;
+}
+//Reset CSS
+a.btn.btn-secondary {
+    color: #fff;
+    background-color: #6c757d!important;
+    border-color: #6c757d;
+    border:5px solid red;
+}
+.listar-paciente a.btn.btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.form-group.box-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: space-around;
+    margin-top: 25px;
+}
