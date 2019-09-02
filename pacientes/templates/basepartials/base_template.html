@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/test_style.css' %}">
+    {% block css-page %}{% endblock css-page %}
+{% endblock css %}
+
+{% block container %}
+{% endblock %}
+
+{% block javascript %}
+   {% block js-page %}{% endblock %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'basepartials/_nav.html' %}
+{% block navmenu %}
+    <li class="menu-colas {% if menu_dashboard %}active{% endif %}">
+        <a  href="{% url 'prueba' %}">Dashboard</a>
+    </li>
+    <li class="menu-colas {% if menu_colas %}active{% endif %}">
+        <a  href="#">Lista Colas</a>
+    </li>
+{% endblock %}

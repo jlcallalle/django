@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, FormView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, FormView, TemplateView
 from django.urls import reverse_lazy, reverse
 from .models import Pacientes
 from .form import PacienteForm, BuscarPacienteForm
@@ -54,3 +54,19 @@ class EliminarPacientes(DeleteView):
     template_name = 'eliminar-paciente.html'
     model = Pacientes
     success_url = reverse_lazy('listar-pacientes')
+
+
+class TesteandoView(TemplateView):
+    template_name = "test.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(TesteandoView, self).get_context_data(**kwargs)
+        context.update({
+            'menu_colas': True,
+            'titulo_ventana': 'Configuración de ventanillas',
+            'pacientes': self.get_pacientes_activos(),
+        })
+        return context
+
+    def get_pacientes_activos(self):
+        return Pacientes.objects.all()
