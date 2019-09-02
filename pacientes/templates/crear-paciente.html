@@ -16,16 +16,11 @@
                     {% if form.errors %}
                         <div class="row texto-error">
                           <div class="col-md-12">
-
                              <div class="alert alert-danger msj-error">
-
                                 <button type="button" class="close msj-close" data-dismiss="alert">×</button>
-
-
                                  {% if form.non_field_errors %}
                                     {{ form.non_field_errors }}
                                  {% endif %}
-
                                 <ul>
                                 {% for field, error in form.errors.items %}
                                     <li><strong>{{ field }}:</strong>  {{ error|striptags }}</li>
@@ -34,10 +29,8 @@
                              </div>
                           </div>
                         </div>
-
                     {% endif %}
                     -->
-
 
                         <div class="row">
                             <div class="col-6">
@@ -73,7 +66,7 @@
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                    <div class="form-group">
+                                    <div class="form-group form-fecha">
                                     {{ form.fecha|as_crispy_field }}
                                     </div>
                             </div>

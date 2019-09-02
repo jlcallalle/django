@@ -9,12 +9,12 @@
                     {% csrf_token %}
                     <div class="col col-5">
                         <div class="form-group group-tipo">
-                                {{ form.tipo_documento }}
+                                {{ form.tipo_documento|as_crispy_field }}
                         </div>
                     </div>
                     <div class="col col-5 group-num">
                         <div class="form-group">
-                                {{ form.numero_documento }}
+                                {{ form.numero_documento|as_crispy_field }}
                         </div>
                     </div>
                     <div class="col col-lg-2">
